@@ -2,8 +2,13 @@ version: '2'
 
 services:
   rcompiler:
-    build: .
-  redis:
-    image: "redis:alpine"
+    build: 
+      context: .
+    volumes:
+      - /usr/src/app/node_modules
+      - /tmp
     ports:
-      - 3000:3000
+      - 80:80
+  # redis:
+  #   image: "redis:alpine"
+    
