@@ -30,7 +30,7 @@ router.post('/rCompile', (req, res, next) => {
 
     rexecute.stdout.on("data", data => {
       console.log(`stdout: ${data}`);
-      var str =  data.toString('utf8').split(' ')[1]
+      var str =  data.toString('utf8')
       outData += str;
     });
   
