@@ -37,7 +37,7 @@ router.post('/rCompile', (req, res, next) => {
     rexecute.stderr.on("data", data => {
       console.log(`stderr: ${data}`);
       var str =  data.toString('utf8')
-      outData = str;
+      outData += str;
     });
   
     rexecute.on("close", code => {

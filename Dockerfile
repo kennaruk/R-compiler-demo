@@ -49,6 +49,25 @@ RUN echo $TZ > /etc/timezone \
         && install.r docopt \
         && rm -rf /tmp/downloaded_packages/ /tmp/*.rds
 
+# RUN  R -e "install.packages('datasets')" && \
+#      echo Installation of datasets R package completed
+# RUN  R -e "install.packages('methods')" && \
+#      echo Installation of methods R package completed
+RUN  R -e "install.packages('nadiv')" && \
+     echo Installation of nadiv R package completed
+RUN  R -e "install.packages('ggplot2')" && \
+     echo Installation of ggplot2 R package completed
+RUN  R -e "install.packages('latiice')" && \
+     echo Installation of latiice R package completed
+RUN  R -e "install.packages('lme4')" && \
+     echo Installation of lme4 R package completed
+RUN  R -e "install.packages('Matrix', repos='http://R-Forge.R-project.org')" && \
+     echo Installation of Matrix R package completed
+RUN  R -e "install.packages('MCMCglmm')" && \
+     echo Installation of MCMCglmm R package completed
+RUN  R -e "install.packages('nlme')" && \
+     echo Installation of nlme R package completed
+
 WORKDIR /usr/src/app
 
 COPY . .
