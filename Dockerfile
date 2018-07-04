@@ -1,6 +1,5 @@
 FROM ubuntu:latest
 
-
 RUN apt-get update \
         && apt-get install -y --no-install-recommends \
                 apt-file apt-utils && apt-file update
@@ -49,19 +48,19 @@ RUN echo $TZ > /etc/timezone \
         && install.r docopt \
         && rm -rf /tmp/downloaded_packages/ /tmp/*.rds
 
-RUN  R -e "install.packages('nadiv')" && \
+RUN  R -e "install.packages('nadiv', repos='https://cloud.r-project.org/')" && \
      echo Installation of nadiv R package completed
-RUN  R -e "install.packages('ggplot2')" && \
+RUN  R -e "install.packages('ggplot2', repos='https://cloud.r-project.org/')" && \
      echo Installation of ggplot2 R package completed
-RUN  R -e "install.packages('latiice')" && \
+RUN  R -e "install.packages('latiice', repos='https://cloud.r-project.org/')" && \
      echo Installation of latiice R package completed
-RUN  R -e "install.packages('lme4')" && \
+RUN  R -e "install.packages('lme4', repos='https://cloud.r-project.org/')" && \
      echo Installation of lme4 R package completed
-RUN  R -e "install.packages('Matrix')" && \
+RUN  R -e "install.packages('Matrix', repos='https://cloud.r-project.org/')" && \
      echo Installation of Matrix R package completed
-RUN  R -e "install.packages('MCMCglmm')" && \
+RUN  R -e "install.packages('MCMCglmm', repos='https://cloud.r-project.org/')" && \
      echo Installation of MCMCglmm R package completed
-RUN  R -e "install.packages('nlme')" && \
+RUN  R -e "install.packages('nlme', repos='https://cloud.r-project.org/')" && \
      echo Installation of nlme R package completed
 
 WORKDIR /usr/src/app
